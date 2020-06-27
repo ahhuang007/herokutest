@@ -25,13 +25,13 @@
             <li><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a></li>
           </ul>
         </div>
-		<form action="//https://mighty-escarpment-93054.herokuapp.com/" target="result" method="get">
-		<p>Choose options here:</p>
-			<input type="text" placeholder="Search..">
-			<input type="checkbox" name="op" value="Daily Open"> Open
-			<input type="checkbox" name="op" value="Daily Close"> Close 
-			<input type="checkbox" name="op" value="Daily High"> High 
-			<input type="checkbox" name="op" value="Daily Low"> Low 
+		<form action="/index" target="result" method="post">
+		<p>Type stock ticker and select options here:</p>
+			<input type="text" name = "ticker" placeholder="Search..">
+			<input type="checkbox" name="open" value="Open">  Daily Open
+			<input type="checkbox" name="close" value="Close"> Daily Close 
+			<input type="checkbox" name="high" value="High"> Daily High 
+			<input type="checkbox" name="low" value="Low"> Daily Low 
 			<p><input type="submit" value="Submit"></p>
 		</form>
 		<h3>Result:</h3>
