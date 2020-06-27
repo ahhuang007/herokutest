@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 app.vars = {}
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/index', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html')
 
