@@ -23,7 +23,7 @@ def index():
         #f.write('high: %s\n\n'%(app.vars['high']))
         #f.write('low: %s\n\n'%(app.vars['low']))
 
-        return any_sel
+        return 'any_sel'
     
 
 
