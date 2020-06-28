@@ -24,7 +24,7 @@ def index():
         f.close()
 
         return 'request.method was not a GET!'
-    return render_template('index.html')
+    
 
 
 @app.route('/about')
