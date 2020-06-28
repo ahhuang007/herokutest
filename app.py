@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-
+import pandas as pd
 app = Flask(__name__)
 app.vars = {}
 
@@ -14,7 +14,8 @@ def index():
         #app.vars['close'] = request.form['close']
         #app.vars['high'] = request.form['high']
         #app.vars['low'] = request.form['low']
-
+        df = pd.DataFrame(columns = ['am','pm'])
+        df.to_csv('test.csv')
         f = open('test.txt','w')
         f.write('ticker: %s\n'%(app.vars['ticker']))
         #f.write('open: %s\n\n'%(app.vars['open']))
