@@ -49,7 +49,7 @@ def plot(df, selected):
     
     
     p = Figure(title = "Past 100 days Of Whatever Stock You Searched", x_axis_label = "Date", x_axis_type = 'datetime', 
-                  y_axis_label = "Price", plot_width = 800, plot_height = 700)
+                  y_axis_label = "Price", plot_width = 800, plot_height = 680)
     p.title.text_font = "arial"
     p.title.text_font_style = "bold"
     p.title.text_font_size = "12pt"
