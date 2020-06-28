@@ -10,17 +10,17 @@ def index():
     else:
         #request was a POST
         app.vars['ticker'] = request.form['ticker']
-        app.vars['open'] = request.form['open']
-        app.vars['close'] = request.form['close']
-        app.vars['high'] = request.form['high']
-        app.vars['low'] = request.form['low']
+        #app.vars['open'] = request.form['open']
+        #app.vars['close'] = request.form['close']
+        #app.vars['high'] = request.form['high']
+        #app.vars['low'] = request.form['low']
 
         f = open('test.txt','w')
         f.write('ticker: %s\n'%(app.vars['ticker']))
-        f.write('open: %s\n\n'%(app.vars['open']))
-        f.write('close: %s\n\n'%(app.vars['close']))
-        f.write('high: %s\n\n'%(app.vars['high']))
-        f.write('low: %s\n\n'%(app.vars['low']))
+        #f.write('open: %s\n\n'%(app.vars['open']))
+        #f.write('close: %s\n\n'%(app.vars['close']))
+        #f.write('high: %s\n\n'%(app.vars['high']))
+        #f.write('low: %s\n\n'%(app.vars['low']))
         f.close()
 
         return 'request.method was not a GET!'
