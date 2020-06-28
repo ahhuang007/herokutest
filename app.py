@@ -10,6 +10,8 @@ def index():
     else:
         #request was a POST
         app.vars['ticker'] = request.form['ticker']
+        selected = request.form.getlist('op')
+        any_sel = bool(selected)
         #app.vars['open'] = request.form['open']
         #app.vars['close'] = request.form['close']
         #app.vars['high'] = request.form['high']
@@ -21,7 +23,7 @@ def index():
         #f.write('high: %s\n\n'%(app.vars['high']))
         #f.write('low: %s\n\n'%(app.vars['low']))
 
-        return app.vars['ticker']
+        return any_sel
     
 
 
