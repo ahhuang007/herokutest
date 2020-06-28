@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
-app.vars = {}
+
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
@@ -9,20 +9,10 @@ def index():
         return render_template('index.html')
     else:
         #request was a POST
-        app.vars['ticker'] = request.form['ticker']
+        ticker = request.form['ticker']
         selected = request.form.getlist('op')
-        #any_sel = bool(selected)
-        #app.vars['open'] = request.form['open']
-        #app.vars['close'] = request.form['close']
-        #app.vars['high'] = request.form['high']
-        #app.vars['low'] = request.form['low']
-        print(selected)
-        
-        #f.write('open: %s\n\n'%(app.vars['open']))
-        #f.write('close: %s\n\n'%(app.vars['close']))
-        #f.write('high: %s\n\n'%(app.vars['high']))
-        #f.write('low: %s\n\n'%(app.vars['low']))
-
+        df = get_data(ticker, selected)
+        df.to_csv('test.csv')
         return 'request.method was not a GET!'
     
 
@@ -31,7 +21,13 @@ def index():
 def about():
     return render_template('about.html')
 
+def get_data(ticker, selected):
+    ts = TimeSeries(key = '0XCC85R5V2ICKQVP', output_format = 'pandas', indexing_type = 'integer')
+    df = ts.get_daily(symbol = ticker, interval = '24hr', outputsize = 'full')
+    return df
 
+def plot():
+    return None
 
 if __name__ == '__main__':
     app.run(port=33507, debug = True)
