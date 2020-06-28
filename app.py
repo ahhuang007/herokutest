@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 from alpha_vantage.timeseries import TimeSeries
 import pandas as pd
 from bokeh.plotting import Figure, reset_output
-from bokeh.models import ColumnDataSource, Div
-from bokeh.io import output_file, show, output_notebook
+from bokeh.io import show
+from bokeh.embed import components
 
 app = Flask(__name__)
 
@@ -19,8 +19,10 @@ def index():
         df = get_data(ticker, selected)
         
         pl = plot(df, selected)
-        show(pl)
-        return 'request.method was not a GET!'
+        
+        script, div = components(pl)
+        
+        return render_template('plot.html', script = script, div = div)
     
 
 
@@ -74,9 +76,6 @@ def plot(df, selected):
     p.legend.location = "bottom_right"
     return p
 
-@app.route('/plot')
-def display():
-    return None
 
 if __name__ == '__main__':
     app.run(port=33507, debug = True)
