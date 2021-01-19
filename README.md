@@ -1,3 +1,3 @@
 # Flask on Heroku
 
-Decided to remove the contents of the readme, no big deal right?
+Simple test of using Flask and Heroku for TDI fellowship.
